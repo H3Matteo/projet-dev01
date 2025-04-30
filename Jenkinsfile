@@ -22,8 +22,8 @@ pipeline {
     stage("deploiement application"){
       steps {
         script{
-          sh'docker image mynginx'
-          sh'docker rm -f $(docker ps -a)'
+          sh'docker image mynginx | true'
+          sh'docker rm -f $(docker ps -a) |true'
           sh 'docker run -d --name monapp --hostname monapp -p 8099:80 myimage_nginx'
         }
       }
