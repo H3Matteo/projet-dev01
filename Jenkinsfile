@@ -8,7 +8,7 @@ pipeline {
     }
     stage("Checkout SCM"){
       steps {
-        sh"https://github.com/H3Matteo/projet-dev01.git"
+        sh 'https://github.com/H3Matteo/projet-dev01.git'
       }
     }
   }
