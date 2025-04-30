@@ -1,7 +1,7 @@
 pipeline{
   agent any
   environment{
-    IMG_NAME = 'med-nginx'
+    IMG_NAME = 'matteo-nginx'
     DOCKER_REPO = 'test'
   }
   
@@ -35,6 +35,7 @@ pipeline{
           sh "docker stop monapp || true"
           sh "docker rm monapp || true"
           sh "docker run -d --name monapp --hostname monapp -p 8585:80 ${IMG_NAME}"
+          sh 'docker exec -ti monapp "ifconfig"'
         }
       }
     }
